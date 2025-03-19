@@ -117,6 +117,18 @@
             justify-content: center;
             gap: 20px;
         }
+        .certificate-description {
+            margin-top: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 80%;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
     </style>
 </head>
 <body class="w3-black">
@@ -170,11 +182,11 @@
         <div class="certificate-container">
             <div class="certificate-card">
                 <img src="Python for Data Science.jpg" class="certificate-img" alt="Python for Data Science">
-                <div>Python for Data Science - NPTEL</div>
+                <div class="certificate-description">Python for Data Science - NPTEL</div>
             </div>
             <div class="certificate-card">
                 <img src="Programming in Java_page-0001.jpg" class="certificate-img" alt="Java Certificate">
-                <div>Programming in Java - NPTEL</div>
+                <div class="certificate-description">Programming in java - NPTEL</div>
             </div>
         </div>
     </div>
