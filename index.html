@@ -129,6 +129,51 @@
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
         }
+        .certificate-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .certificate-card {
+        position: relative;
+        max-width: 100%;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .certificate-img {
+        height: 300px;
+        width: 100%;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .certificate-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .certificate-card:hover .certificate-description {
+        opacity: 1;
+    }
+
+    .certificate-description {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 15px;
+        font-size: 16px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
     </style>
 </head>
 <body class="w3-black">
@@ -180,16 +225,18 @@
 
         <h3 class="w3-text-light-grey">My Certificates</h3>
         <div class="certificate-container">
-            <div class="certificate-card">
-                <img src="Python for Data Science.jpg" class="certificate-img" alt="Python for Data Science">
-                <div class="certificate-description">Python for Data Science - NPTEL</div>
-            </div>
-            <div class="certificate-card">
-                <img src="Programming in Java_page-0001.jpg" class="certificate-img" alt="Java Certificate">
-                <div class="certificate-description">Programming in java - NPTEL</div>
-            </div>
-        </div>
+            <div class="certificate-container">
+    <div class="certificate-card">
+        <img src="Python for Data Science.jpg" class="certificate-img" alt="Python for Data Science">
+        <div class="certificate-description">Python for Data Science - NPTEL</div>
     </div>
+
+    <div class="certificate-card">
+        <img src="Programming in Java_page-0001.jpg" class="certificate-img" alt="Java Certificate">
+        <div class="certificate-description">Programming in Java - NPTEL</div>
+    </div>
+</div>
+        </div>
 
 <!-- Portfolio Section -->
   <div class="w3-padding-64 w3-content" id="photos">
