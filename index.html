@@ -19,55 +19,41 @@
 
         #main {
             margin-left: 120px;
-            transition: margin 0.3s;
         }
 
         @media only screen and (max-width: 768px) {
+            #main {
+                margin-left: 0;
+            }
+
             .w3-sidebar {
                 width: 100%;
                 height: auto;
                 position: relative;
             }
-            
-            #main {
-                margin-left: 0;
+
+            .w3-bar-item {
+                text-align: center;
+                float: none;
             }
-            
+
             .circular-image {
                 width: 200px;
                 height: 200px;
             }
-            
-            .certificate-card, .w3-half {
-                min-width: 100%;
-            }
-            
-            .certificate-img {
-                height: auto;
-                width: 100%;
-            }
-            
-            .w3-padding-64 {
-                padding: 32px 16px;
-            }
         }
 
         .circular-image {
-            width: 350px;
-            height: 350px;
+            width: 400px;
+            height: 400px;
             border-radius: 50%;
             object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .circular-image:hover {
-            transform: scale(1.1);
         }
 
         .certificate-container {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
             padding: 20px;
         }
@@ -76,13 +62,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 45%;
+            max-width: 100%;
             text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .certificate-card:hover {
-            transform: scale(1.05);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .certificate-img {
@@ -91,11 +74,36 @@
             border-radius: 10px;
         }
 
+        .certificate-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .w3-row-padding {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .w3-half {
+            flex: 1;
+            min-width: 45%;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .hover-card {
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-radius: 10px;
-            overflow: hidden;
             cursor: pointer;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
         }
 
         .hover-card:hover {
@@ -103,23 +111,18 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .footer-icons i {
-            margin: 0 10px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .footer-icons i:hover {
-            transform: scale(1.2);
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
     </style>
 </head>
-
 <body class="w3-black">
 
-<!-- Sidebar -->
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-    <img src="482801-1700725471994-43110162-fotor-bg-remover-20240926182345.png" style="width:100%">
+<!-- Sidebar Navigation -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-center w3-hide-small">
+    <img src="your-profile-image.png" style="width:100%">
     <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
         <i class="fa fa-home w3-xxlarge"></i>
         <p>HOME</p>
@@ -138,65 +141,77 @@
     </a>
 </nav>
 
-<!-- Navbar for small screens -->
-<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-    <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-        <a href="#" class="w3-bar-item w3-button">HOME</a>
-        <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-        <a href="#photos" class="w3-bar-item w3-button">PROJECTS</a>
-        <a href="#contact" class="w3-bar-item w3-button">CONTACT</a>
-    </div>
-</div>
-
-<!-- Main Content -->
+<!-- Page Content -->
 <div class="w3-padding-large" id="main">
 
     <!-- Header -->
-    <header class="w3-container w3-padding-32 w3-center w3-black">
-        <h1 class="w3-jumbo">I'm Charan Edamalapati</h1>
+    <header class="w3-container w3-center w3-black">
+        <h1 class="w3-jumbo">I'm Charan Edamalapati.</h1>
         <p>Software Developer, Full Stack Developer</p>
-        <img src="482801-1700725471994-43110162-fotor-bg-remover-20240926182345.png" alt="profile" class="circular-image">
+        <img src="your-profile-image.png" alt="profile" class="circular-image">
     </header>
 
     <!-- About Section -->
-    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-        <h2 class="w3-text-light-grey">About Me</h2>
-        <hr style="width:200px" class="w3-opacity">
-        <p>I am an aspiring software developer pursuing a BE in Computer Science at Sathyabama Institute of Science and Technology, graduating in 2027. I specialize in Django, React, AI, and ML, building dynamic web apps and AI-driven solutions.</p>
+    <div class="w3-content w3-padding-64 w3-text-grey" id="about">
+        <h2 class="w3-text-light-grey">E CHARAN</h2>
+        <p>I am an aspiring software developer currently pursuing a Bachelor of Engineering in Computer Science at Sathyabama Institute of Science and Technology, graduating in 2027. I specialize in Django and React and am passionate about AI, ML, and data science.</p>
 
-        <h3 class="w3-padding-16 w3-text-light-grey">Skills</h3>
+        <h3 class="w3-text-light-grey">My Skills</h3>
         <p class="w3-wide">Python</p>
         <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:70%"></div></div>
         <p class="w3-wide">Back End</p>
         <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:80%"></div></div>
         <p class="w3-wide">Front End</p>
         <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:60%"></div></div>
+        <p class="w3-wide">DBMS</p>
+        <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:60%"></div></div>
 
-        <h3 class="w3-padding-16 w3-text-light-grey">Certificates</h3>
+        <h3 class="w3-text-light-grey">My Certificates</h3>
         <div class="certificate-container">
             <div class="certificate-card">
                 <img src="Python for Data Science.jpg" class="certificate-img" alt="Python for Data Science">
-                <div class="w3-text-white">Python for Data Science - NPTEL</div>
+                <div>Python for Data Science - NPTEL</div>
+            </div>
+            <div class="certificate-card">
+                <img src="Programming in Java_page-0001.jpg" class="certificate-img" alt="Java Certificate">
+                <div>Programming in Java - NPTEL</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="w3-padding-64 w3-content" id="photos">
+        <h2 class="w3-text-light-grey">My Projects</h2>
+
+        <div class="w3-row-padding">
+            <div class="w3-half w3-margin-bottom hover-card">
+                <h3>Restaurant Management System</h3>
+                <p>Technologies: Django, HTML, CSS</p>
             </div>
 
-            <div class="certificate-card">
-                <img src="Programming in Java_page-0001.jpg" class="certificate-img" alt="Programming in Java">
-                <div class="w3-text-white">Programming in Java - NPTEL</div>
+            <div class="w3-half w3-margin-bottom hover-card">
+                <h3>Hostel Management</h3>
+                <p>Technologies: Django, MySQL, Bootstrap</p>
             </div>
         </div>
     </div>
 
     <!-- Contact Section -->
     <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-        <h2 class="w3-text-light-grey">Contact Me</h2>
-        <p><i class="fa fa-map-marker fa-fw w3-text-white"></i> Chennai, India</p>
-        <p><i class="fa fa-envelope fa-fw w3-text-white"></i> charanedamalapati2005@gmail.com</p>
+        <h2>Contact Me</h2>
+        <p><i class="fa fa-map-marker"></i> Chennai, India</p>
+        <p><i class="fa fa-phone"></i> +91 9182075580</p>
+        <p><i class="fa fa-envelope"></i> charanedamalapati2005@gmail.com</p>
     </div>
 
     <!-- Footer -->
     <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge footer-icons">
-        <i class="fa fa-linkedin w3-hover-opacity"></i>
-        <i class="fa fa-github w3-hover-opacity"></i>
+        <a href="https://www.linkedin.com/in/charan-edamalapati-6994a8319/" target="_blank">
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </a>
+        <a href="https://github.com/your-github-username" target="_blank">
+            <i class="fa fa-github w3-hover-opacity"></i>
+        </a>
     </footer>
 </div>
 
