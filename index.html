@@ -211,6 +211,57 @@
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+.collapsible-card {
+    width: 250px;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.collapsible-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.collapsible-card.expanded {
+    width: 90vw;
+    max-width: 800px;
+    height: auto;
+    z-index: 1000;
+    background: #000;
+    padding: 10px;
+}
+
+.collapsible-card .certificate-description {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    transition: opacity 0.3s;
+}
+
+.zoom-icon {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 18px;
+    color: white;
+    background: rgba(0,0,0,0.6);
+    padding: 5px 8px;
+    border-radius: 5px;
+    z-index: 999;
+}
 
     </style>
 </head>
@@ -266,19 +317,20 @@
 
 
         <h3 class="w3-text-light-grey">My Certificates</h3>
-        <div class="certificate-container">
-            <div class="certificate-container">
-    <div class="certificate-card">
-        <img src="Python for Data Science.jpg" class="certificate-img" alt="Python for Data Science">
+<div class="certificate-container">
+    <div class="collapsible-card" onclick="toggleExpand(this)">
+        <img src="Python for Data Science.jpg" alt="Python for Data Science">
+        <div class="zoom-icon">🔍</div>
         <div class="certificate-description">Python for Data Science - NPTEL</div>
     </div>
 
-    <div class="certificate-card">
-        <img src="Programming in Java_page-0001.jpg" class="certificate-img" alt="Java Certificate">
+    <div class="collapsible-card" onclick="toggleExpand(this)">
+        <img src="Programming in Java_page-0001.jpg" alt="Java Certificate">
+        <div class="zoom-icon">🔍</div>
         <div class="certificate-description">Programming in Java - NPTEL</div>
     </div>
 </div>
-        </div>
+
 
 
 <!-- Portfolio Section -->
@@ -405,6 +457,11 @@
         </a>
     </footer>
 </div>
+<script>
+    function toggleExpand(card) {
+        card.classList.toggle("expanded");
+    }
+</script>
 
 </body>
 </html>
