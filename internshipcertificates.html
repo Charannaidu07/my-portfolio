@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charan - Internship Certificates</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .w3-sidebar {
+            width: 120px;
+            background: #222;
+        }
+
+        #main {
+            margin-left: 120px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            #main {
+                margin-left: 0;
+            }
+
+            .w3-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .w3-bar-item {
+                text-align: center;
+                float: none;
+            }
+
+            .circular-image {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        .circular-image {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Certificate Gallery Styles */
+        .certificate-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .certificate-item {
+            width: 350px;
+            background: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .certificate-img-container {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .certificate-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .certificate-item:hover .certificate-img {
+            transform: scale(1.05);
+        }
+
+        .certificate-info {
+            padding: 20px;
+            color: white;
+        }
+
+        .certificate-title {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .certificate-org {
+            color: #aaa;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .certificate-desc {
+            color: #ddd;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Badges Section */
+        .badges-section {
+            margin-top: 50px;
+        }
+
+        .badges-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .badge-item {
+            width: 150px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .badge-item:hover {
+            transform: scale(1.1);
+        }
+
+        .badge-img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .badge-title {
+            color: white;
+            font-size: 0.9em;
+        }
+
+        /* Back Button */
+        .back-button {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        /* Section Header */
+        .section-header {
+            position: relative;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            display: inline-block;
+            color: white;
+            background: #222;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #444;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="w3-black">
+
+<!-- Sidebar Navigation -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-center w3-hide-small">
+    <img src="myimg.png" style="width:100%">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-home w3-xxlarge"></i>
+        <p>HOME</p>
+    </a>
+    <a href="index.html#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-user w3-xxlarge"></i>
+        <p>ABOUT</p>
+    </a>
+    <a href="index.html#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-eye w3-xxlarge"></i>
+        <p>PROJECTS</p>
+    </a>
+    <a href="index.html#internships" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-briefcase w3-xxlarge"></i>
+        <p>INTERNSHIPS</p>
+    </a>
+    <a href="index.html#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-envelope w3-xxlarge"></i>
+        <p>CONTACT</p>
+    </a>
+</nav>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+
+    <!-- Header -->
+    <header class="w3-container w3-center w3-padding-32">
+        <h1 class="w3-jumbo">Internship <span class="w3-text-light-grey">Certificates</span></h1>
+        <p>My official certifications and earned badges</p>
+    </header>
+
+    <!-- Certificates Section -->
+    <div class="w3-content">
+        <div class="section-header">
+            <h2>Certificates</h2>
+        </div>
+
+        <div class="certificate-gallery">
+            <!-- CodSoft Certificate -->
+            <div class="certificate-item">
+                <div class="certificate-img-container">
+                    <img src="codsoft-certificate.jpg" alt="CodSoft Certificate" class="certificate-img">
+                </div>
+                <div class="certificate-info">
+                    <h3 class="certificate-title">Web Development Internship</h3>
+                    <p class="certificate-org">CodSoft • May 2024 - June 2024</p>
+                    <p class="certificate-desc">Successfully completed one month internship in web development, working with Django and React frameworks.</p>
+                    <a href="codsoft-certificate.jpg" class="w3-button w3-light-grey" download>Download</a>
+                </div>
+            </div>
+
+            <!-- Bharat Intern Certificate -->
+            <div class="certificate-item">
+                <div class="certificate-img-container">
+                    <img src="bharatintern-certificate.jpg" alt="Bharat Intern Certificate" class="certificate-img">
+                </div>
+                <div class="certificate-info">
+                    <h3 class="certificate-title">Machine Learning Internship</h3>
+                    <p class="certificate-org">Bharat Intern • June 2024 - July 2024</p>
+                    <p class="certificate-desc">Completed machine learning internship with focus on predictive modeling and sentiment analysis.</p>
+                    <a href="bharatintern-certificate.jpg" class="w3-button w3-light-grey" download>Download</a>
+                </div>
+            </div>
+
+            <!-- Add more certificates as needed -->
+        </div>
+    </div>
+
+    <!-- Badges Section -->
+    <div class="w3-content badges-section">
+        <div class="section-header">
+            <h2>Earned Badges</h2>
+        </div>
+
+        <div class="badges-container">
+            <!-- CodSoft Badges -->
+            <div class="badge-item">
+                <img src="web-dev-badge.png" alt="Web Development Badge" class="badge-img">
+                <p class="badge-title">Web Development Expert</p>
+            </div>
+
+            <div class="badge-item">
+                <img src="django-badge.png" alt="Django Badge" class="badge-img">
+                <p class="badge-title">Django Mastery</p>
+            </div>
+
+            <!-- Bharat Intern Badges -->
+            <div class="badge-item">
+                <img src="ml-badge.png" alt="Machine Learning Badge" class="badge-img">
+                <p class="badge-title">ML Specialist</p>
+            </div>
+
+            <div class="badge-item">
+                <img src="python-badge.png" alt="Python Badge" class="badge-img">
+                <p class="badge-title">Python Pro</p>
+            </div>
+
+            <!-- Add more badges as needed -->
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="back-button">
+        <a href="index.html" class="w3-button w3-light-grey w3-padding-large">
+            <i class="fa fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-content w3-padding-32 w3-text-grey w3-xlarge footer-icons">
+        <a href="https://www.linkedin.com/in/charan-edamalapati-6994a8319/" target="_blank">
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </a>
+        <a href="https://github.com/Charannaidu07" target="_blank">
+            <i class="fa fa-github w3-hover-opacity"></i>
+        </a>
+    </footer>
+</div>
+
+</body>
+</html>
