@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Charan - Internship Certificates</title>
+    <title>Charan - IBM SkillsBuild Certificates</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
@@ -65,6 +65,7 @@
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
         }
 
         .certificate-item:hover {
@@ -76,12 +77,16 @@
             height: 250px;
             overflow: hidden;
             position: relative;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .certificate-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
             transition: transform 0.5s ease;
         }
 
@@ -126,13 +131,17 @@
         }
 
         .badge-item {
-            width: 150px;
+            width: 180px;
             text-align: center;
             transition: transform 0.3s ease;
+            background: #333;
+            padding: 15px;
+            border-radius: 10px;
         }
 
         .badge-item:hover {
             transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .badge-img {
@@ -140,11 +149,20 @@
             height: 120px;
             object-fit: contain;
             margin-bottom: 10px;
+            border-radius: 50%;
+            background: #fff;
+            padding: 10px;
         }
 
         .badge-title {
             color: white;
             font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .badge-view-btn {
+            margin-top: 10px;
+            display: block;
         }
 
         /* Back Button */
@@ -178,6 +196,26 @@
             height: 1px;
             background: #444;
             z-index: 0;
+        }
+
+        .internship-highlights {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px auto;
+            max-width: 800px;
+        }
+
+        .highlight-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .highlight-icon {
+            margin-right: 15px;
+            color: #4CAF50;
+            font-size: 1.2em;
         }
     </style>
 </head>
@@ -213,9 +251,30 @@
 
     <!-- Header -->
     <header class="w3-container w3-center w3-padding-32">
-        <h1 class="w3-jumbo">Internship <span class="w3-text-light-grey">Certificates</span></h1>
-        <p>My official certifications and earned badges</p>
+        <h1 class="w3-jumbo">IBM SkillsBuild <span class="w3-text-light-grey">Certifications</span></h1>
+        <p>AI & Cloud Computing Internship with Edunet Foundation</p>
     </header>
+
+    <!-- Internship Highlights -->
+    <div class="internship-highlights">
+        <h3 class="w3-text-light-grey" style="text-align: center; margin-bottom: 20px;">Internship Highlights</h3>
+        <div class="highlight-item">
+            <div class="highlight-icon">✓</div>
+            <div>Completed intensive training in AI fundamentals and IBM Cloud technologies</div>
+        </div>
+        <div class="highlight-item">
+            <div class="highlight-icon">✓</div>
+            <div>Gained hands-on experience with IBM Watson AI services and cloud deployment</div>
+        </div>
+        <div class="highlight-item">
+            <div class="highlight-icon">✓</div>
+            <div>Earned multiple IBM digital badges and professional certifications</div>
+        </div>
+        <div class="highlight-item">
+            <div class="highlight-icon">✓</div>
+            <div>Developed practical skills in AI model development and cloud solutions</div>
+        </div>
+    </div>
 
     <!-- Certificates Section -->
     <div class="w3-content">
@@ -224,29 +283,16 @@
         </div>
 
         <div class="certificate-gallery">
-            <!-- CodSoft Certificate -->
+            <!-- IBM Certificate -->
             <div class="certificate-item">
                 <div class="certificate-img-container">
-                    <img src="codsoft-certificate.jpg" alt="CodSoft Certificate" class="certificate-img">
+                    <img src="ibm-certificate.jpg" alt="IBM SkillsBuild Certificate" class="certificate-img">
                 </div>
                 <div class="certificate-info">
-                    <h3 class="certificate-title">Web Development Internship</h3>
-                    <p class="certificate-org">CodSoft • May 2024 - June 2024</p>
-                    <p class="certificate-desc">Successfully completed one month internship in web development, working with Django and React frameworks.</p>
-                    <a href="codsoft-certificate.jpg" class="w3-button w3-light-grey" download>Download</a>
-                </div>
-            </div>
-
-            <!-- Bharat Intern Certificate -->
-            <div class="certificate-item">
-                <div class="certificate-img-container">
-                    <img src="bharatintern-certificate.jpg" alt="Bharat Intern Certificate" class="certificate-img">
-                </div>
-                <div class="certificate-info">
-                    <h3 class="certificate-title">Machine Learning Internship</h3>
-                    <p class="certificate-org">Bharat Intern • June 2024 - July 2024</p>
-                    <p class="certificate-desc">Completed machine learning internship with focus on predictive modeling and sentiment analysis.</p>
-                    <a href="bharatintern-certificate.jpg" class="w3-button w3-light-grey" download>Download</a>
+                    <h3 class="certificate-title">AI & Cloud Computing Internship</h3>
+                    <p class="certificate-org">IBM SkillsBuild • Edunet Foundation • 2024</p>
+                    <p class="certificate-desc">Successfully completed the IBM SkillsBuild internship program in Artificial Intelligence and Cloud Computing.</p>
+                    <a href="ibm-certificate.jpg" class="w3-button w3-light-grey" download>Download Certificate</a>
                 </div>
             </div>
 
@@ -261,29 +307,58 @@
         </div>
 
         <div class="badges-container">
-            <!-- CodSoft Badges -->
+            <!-- Badge 1 -->
             <div class="badge-item">
-                <img src="web-dev-badge.png" alt="Web Development Badge" class="badge-img">
-                <p class="badge-title">Web Development Expert</p>
+                <img src="journey-to-cloud-envisioning-your-solution.2.png" alt="Journey to Cloud: Envisioning Your Solution" class="badge-img">
+                <p class="badge-title">Journey to Cloud: Envisioning Your Solution</p>
+                <a href="https://www.credly.com/badges/6846ea44-517d-439a-bae4-e0e6486cd295/public_url" 
+                   class="w3-button w3-light-grey w3-small badge-view-btn" 
+                   target="_blank">
+                   View Badge
+                </a>
             </div>
 
+            <!-- Badge 2 -->
             <div class="badge-item">
-                <img src="django-badge.png" alt="Django Badge" class="badge-img">
-                <p class="badge-title">Django Mastery</p>
-            </div>
-
-            <!-- Bharat Intern Badges -->
-            <div class="badge-item">
-                <img src="ml-badge.png" alt="Machine Learning Badge" class="badge-img">
-                <p class="badge-title">ML Specialist</p>
-            </div>
-
-            <div class="badge-item">
-                <img src="python-badge.png" alt="Python Badge" class="badge-img">
-                <p class="badge-title">Python Pro</p>
+                <img src="getting-started-with-artificial-intelligence.png" alt="Getting Started with Artificial Intelligence" class="badge-img">
+                <p class="badge-title">Getting Started with AI</p>
+                <a href="https://www.credly.com/badges/5fa069ef-2f57-4279-bd75-480fba5ef6f6/public_url" 
+                   class="w3-button w3-light-grey w3-small badge-view-btn" 
+                   target="_blank">
+                   View Badge
+                </a>
             </div>
 
             <!-- Add more badges as needed -->
+        </div>
+    </div>
+
+    <!-- Skills Gained Section -->
+    <div class="w3-content" style="margin-top: 50px;">
+        <div class="section-header">
+            <h2>Skills Gained</h2>
+        </div>
+        
+        <div class="w3-row-padding" style="margin: 0 -16px;">
+            <div class="w3-half w3-margin-bottom">
+                <ul class="w3-ul w3-white w3-opacity w3-hover-opacity-off">
+                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Technical Skills</li>
+                    <li class="w3-padding-16">IBM Cloud Platform</li>
+                    <li class="w3-padding-16">AI Fundamentals</li>
+                    <li class="w3-padding-16">Watson AI Services</li>
+                    <li class="w3-padding-16">Cloud Deployment</li>
+                </ul>
+            </div>
+            
+            <div class="w3-half">
+                <ul class="w3-ul w3-white w3-opacity w3-hover-opacity-off">
+                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Professional Skills</li>
+                    <li class="w3-padding-16">Agile Methodology</li>
+                    <li class="w3-padding-16">Design Thinking</li>
+                    <li class="w3-padding-16">Problem Solving</li>
+                    <li class="w3-padding-16">Team Collaboration</li>
+                </ul>
+            </div>
         </div>
     </div>
 
