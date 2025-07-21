@@ -58,41 +58,84 @@
             padding: 20px;
         }
 
-        .certificate-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 100%;
-            text-align: center;
+        .collapsible-card {
+            width: 250px;
+            height: 150px;
+            overflow: hidden;
             position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .certificate-img {
-            height: 300px;
-            width: 100%;
+            cursor: pointer;
             border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
-        .certificate-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        .collapsible-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: all 0.3s ease;
         }
 
-        .w3-row-padding {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 16px;
+        .collapsible-card.expanded {
+            width: 90vw;
+            max-width: 800px;
+            height: auto;
+            z-index: 1000;
+            background: #000;
+            padding: 10px;
         }
 
-        .w3-half {
-            flex: 1;
-            min-width: 45%;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .collapsible-card .certificate-description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            text-align: center;
+            padding: 12px 10px;
+            font-size: 14px;
+            opacity: 1;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .collapsible-card.expanded .certificate-description {
+            position: relative;
+            background: #111;
+            padding: 20px;
+            font-size: 16px;
+            opacity: 1;
+        }
+
+        .zoom-icon {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            font-size: 18px;
+            color: white;
+            background: rgba(0,0,0,0.6);
+            padding: 5px 8px;
+            border-radius: 5px;
+            z-index: 999;
+        }
+
+        /* Project Card Styling */
+        .project-card {
+            width: 100%;
+        }
+
+        @media screen and (min-width: 768px) {
+            .project-card {
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .project-card {
+                width: 100%;
+            }
         }
 
         .hover-card {
@@ -112,215 +155,47 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
+        /* Internship Section Styles */
+        .internship-card {
+            background: #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .internship-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .internship-company {
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .internship-duration {
+            color: #aaa;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .internship-description {
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        .internship-button {
+            margin-top: 30px;
+            text-align: center;
+        }
+
         .footer-icons {
             display: flex;
             justify-content: center;
             gap: 20px;
         }
-        .certificate-description {
-            margin-top: 10px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 16px;
-            width: 80%;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-        .certificate-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .certificate-card {
-        position: relative;
-        max-width: 100%;
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        overflow: hidden;
-        border-radius: 10px;
-    }
-
-    .certificate-img {
-        height: 300px;
-        width: 100%;
-        border-radius: 10px;
-        transition: transform 0.3s ease;
-    }
-
-    .certificate-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .certificate-card:hover .certificate-description {
-        opacity: 1;
-    }
-
-    .certificate-description {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        color: white;
-        padding: 15px;
-        font-size: 16px;
-        text-align: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-        /* Project Card Styling */
-.project-card {
-    width: 100%;
-}
-
-/* For laptops (half-width) */
-@media screen and (min-width: 768px) {
-    .project-card {
-        width: 50%;
-    }
-}
-
-/* For mobile (full-width) */
-@media screen and (max-width: 767px) {
-    .project-card {
-        width: 100%;
-    }
-}
-
-/* Hover Card Styles */
-.hover-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 10px;
-    cursor: pointer;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.hover-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-.collapsible-card {
-    width: 250px;
-    height: 150px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.collapsible-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
-
-.collapsible-card.expanded {
-    width: 90vw;
-    max-width: 800px;
-    height: auto;
-    z-index: 1000;
-    background: #000;
-    padding: 10px;
-}
-
-.collapsible-card .certificate-description {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.7);
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    transition: opacity 0.3s;
-}
-
-.zoom-icon {
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    font-size: 18px;
-    color: white;
-    background: rgba(0,0,0,0.6);
-    padding: 5px 8px;
-    border-radius: 5px;
-    z-index: 999;
-}
-    .collapsible-card .certificate-description {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.75);
-    color: #fff;
-    text-align: center;
-    padding: 12px 10px;
-    font-size: 14px;
-    opacity: 1;
-    transition: all 0.3s ease;
-    z-index: 2;
-}
-
-.collapsible-card.expanded .certificate-description {
-    position: relative;
-    background: #111;
-    padding: 20px;
-    font-size: 16px;
-    opacity: 1;
-}
-
-/* Internship Section Styles */
-.internship-card {
-    background: #333;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    transition: all 0.3s ease;
-}
-
-.internship-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.internship-company {
-    font-size: 1.5em;
-    color: #fff;
-    margin-bottom: 10px;
-}
-
-.internship-duration {
-    color: #aaa;
-    font-style: italic;
-    margin-bottom: 15px;
-}
-
-.internship-description {
-    color: #ddd;
-    line-height: 1.6;
-}
-
-.internship-button {
-    margin-top: 30px;
-    text-align: center;
-}
-
     </style>
 </head>
 <body class="w3-black">
@@ -377,169 +252,154 @@
             <i class="fa fa-download"></i> Download Resume
         </a>
 
-
         <h3 class="w3-text-light-grey">My Certificates</h3>
-<div class="certificate-container">
-    <div class="collapsible-card" onclick="toggleExpand(this)">
-        <img src="Python for Data Science.jpg" alt="Python for Data Science">
-        <div class="zoom-icon">🔍</div>
-        <div class="certificate-description">Python for Data Science - NPTEL</div>
-    </div>
+        <div class="certificate-container">
+            <div class="collapsible-card" onclick="toggleExpand(this)">
+                <img src="Python for Data Science.jpg" alt="Python for Data Science">
+                <div class="zoom-icon">🔍</div>
+                <div class="certificate-description">Python for Data Science - NPTEL</div>
+            </div>
 
-    <div class="collapsible-card" onclick="toggleExpand(this)">
-        <img src="Programming in Java_page-0001.jpg" alt="Java Certificate">
-        <div class="zoom-icon">🔍</div>
-        <div class="certificate-description">Programming in Java - NPTEL</div>
-    </div>
-</div>
-
-<!-- Internship Section -->
-<div class="w3-padding-64 w3-content" id="internships">
-    <h2 class="w3-text-light-grey">My Internships</h2>
-    <hr style="width:200px" class="w3-opacity">
-
-    <div class="internship-card">
-        <h3 class="internship-company">IBM SkillsBuild AI & Cloud Internship</h3>
-        <p class="internship-duration">Edunet Foundation(AICTE)</p>
-        <p class="internship-duration">July 2025 - August 2024</p>
-        <div class="internship-description">
-            <p>Completed AI and Cloud Computing internship through IBM SkillsBuild program, gaining hands-on experience with IBM Watson AI services and cloud technologies.</p>
-            <ul>
-                <li>Developed AI models using IBM Watson</li>
-            <li>Deployed applications on IBM Cloud</li>
-            <li>Earned multiple IBM digital badges in AI and Cloud</li>
-            <li>Gained professional skills in Agile and Design Thinking</li>
-            </ul>
+            <div class="collapsible-card" onclick="toggleExpand(this)">
+                <img src="Programming in Java_page-0001.jpg" alt="Java Certificate">
+                <div class="zoom-icon">🔍</div>
+                <div class="certificate-description">Programming in Java - NPTEL</div>
+            </div>
         </div>
     </div>
 
-<!--     <div class="internship-card">
-        <h3 class="internship-company">Bharat Intern</h3>
-        <p class="internship-duration">June 2024 - July 2024</p>
-        <div class="internship-description">
-            <p>Worked as a Machine Learning intern at Bharat Intern, where I developed and implemented machine learning models for predictive analysis.</p>
-            <ul>
-                <li>Built a sentiment analysis model for customer reviews</li>
-                <li>Created a recommendation system using collaborative filtering</li>
-                <li>Optimized model performance through hyperparameter tuning</li>
-            </ul>
-        </div>
-    </div> -->
+    <!-- Internship Section -->
+    <div class="w3-padding-64 w3-content" id="internships">
+        <h2 class="w3-text-light-grey">My Internships</h2>
+        <hr style="width:200px" class="w3-opacity">
 
-    <div class="internship-button">
-        <a href="internshipcertificates.html" class="w3-button w3-light-grey w3-padding-large w3-section">
-            <i class="fa fa-briefcase"></i> View All Experiences
-        </a>
-    </div>
-</div>
-
-<!-- Portfolio Section -->
-<div class="w3-padding-64 w3-content" id="photos">
-    <h2 class="w3-text-light-grey">My Projects</h2>
-    <hr style="width:200px" class="w3-opacity">
-
-    <!-- Row 1 -->
-    <div class="w3-row-padding">
-        <div class="w3-half w3-margin-bottom project-card">
-            <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off hover-card">
-                <li class="w3-dark-grey w3-xlarge w3-padding-32">Moderate</li>
-                <li class="w3-padding-16">Web Design</li>
-                <li class="w3-padding-16">HTML, CSS</li>
-                <li class="w3-padding-16">Django</li>
-                <li class="w3-padding-16">15-days</li>
-                <li class="w3-padding-16">1 Member</li>
-                <li class="w3-padding-16">
-                      <a href="https://github.com/Charannaidu07/Restaurently" target="_blank">View Code</a>
-                </li>
-                <li class="w3-padding-16"><h2>Restaurant Management System</h2></li>
-            </ul>
+        <div class="internship-card">
+            <h3 class="internship-company">IBM SkillsBuild AI & Cloud Internship</h3>
+            <p class="internship-duration">Edunet Foundation(AICTE)</p>
+            <p class="internship-duration">July 2025 - August 2024</p>
+            <div class="internship-description">
+                <p>Completed AI and Cloud Computing internship through IBM SkillsBuild program, gaining hands-on experience with IBM Watson AI services and cloud technologies.</p>
+                <ul>
+                    <li>Developed AI models using IBM Watson</li>
+                    <li>Deployed applications on IBM Cloud</li>
+                    <li>Earned multiple IBM digital badges in AI and Cloud</li>
+                    <li>Gained professional skills in Agile and Design Thinking</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="w3-half w3-margin-bottom project-card">
-            <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off hover-card">
-                <li class="w3-dark-grey w3-xlarge w3-padding-32">Moderate</li>
-                <li class="w3-padding-16">Full Stack</li>
-                <li class="w3-padding-16">HTML, CSS, Bootstrap</li>
-                <li class="w3-padding-16">Django, Mysql</li>
-                <li class="w3-padding-16">3-days</li>
-                <li class="w3-padding-16">1 Member</li>
-                <li class="w3-padding-16">
-                      <a href="https://github.com/Charannaidu07/hostelmanagement" target="_blank">View Code</a>
-                </li>
-                <li class="w3-padding-16"><h2>Hostel Management</h2></li>
-            </ul>
+        <div class="internship-button">
+            <a href="internshipcertificates.html" class="w3-button w3-light-grey w3-padding-large w3-section">
+                <i class="fa fa-briefcase"></i> View All Experiences
+            </a>
         </div>
     </div>
 
-    <!-- Row 2 -->
-    <div class="w3-row-padding">
-        <div class="w3-half w3-margin-bottom project-card">
-            <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off hover-card">
-                <li class="w3-dark-grey w3-xlarge w3-padding-32">Moderate</li>
-                <li class="w3-padding-16">Web Design</li>
-                <li class="w3-padding-16">HTML, CSS</li>
-                <li class="w3-padding-16">PHP</li>
-                <li class="w3-padding-16">1-day</li>
-                <li class="w3-padding-16">1 Member</li>
-                <li class="w3-padding-16">
-                      <a href="https://github.com/Charannaidu07/Story" target="_blank">View Code</a>
-                </li>
-                <li class="w3-padding-16"><h2>Story</h2></li>
-            </ul>
+    <!-- Portfolio Section -->
+    <div class="w3-padding-64 w3-content" id="photos">
+        <h2 class="w3-text-light-grey">My Projects</h2>
+        <hr style="width:200px" class="w3-opacity">
+
+        <!-- Row 1 -->
+        <div class="w3-row-padding">
+            <div class="w3-half w3-margin-bottom project-card">
+                <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off hover-card">
+                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Moderate</li>
+                    <li class="w3-padding-16">Web Design</li>
+                    <li class="w3-padding-16">HTML, CSS</li>
+                    <li class="w3-padding-16">Django</li>
+                    <li class="w3-padding-16">15-days</li>
+                    <li class="w3-padding-16">1 Member</li>
+                    <li class="w3-padding-16">
+                        <a href="https://github.com/Charannaidu07/Restaurently" target="_blank">View Code</a>
+                    </li>
+                    <li class="w3-padding-16"><h2>Restaurant Management System</h2></li>
+                </ul>
+            </div>
+
+            <div class="w3-half w3-margin-bottom project-card">
+                <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off hover-card">
+                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Moderate</li>
+                    <li class="w3-padding-16">Full Stack</li>
+                    <li class="w3-padding-16">HTML, CSS, Bootstrap</li>
+                    <li class="w3-padding-16">Django, Mysql</li>
+                    <li class="w3-padding-16">3-days</li>
+                    <li class="w3-padding-16">1 Member</li>
+                    <li class="w3-padding-16">
+                        <a href="https://github.com/Charannaidu07/hostelmanagement" target="_blank">View Code</a>
+                    </li>
+                    <li class="w3-padding-16"><h2>Hostel Management</h2></li>
+                </ul>
+            </div>
         </div>
 
-        <div class="w3-half w3-margin-bottom project-card">
-            <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off hover-card">
-                <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
-                <li class="w3-padding-16">Web Design</li>
-                <li class="w3-padding-16">HTML, CSS</li>
-                <li class="w3-padding-16">Flask</li>
-                <li class="w3-padding-16">1-day</li>
-                <li class="w3-padding-16">1 Member</li>
-                <li class="w3-padding-16">
-                      <a href="https://github.com/Charannaidu07/Calculator" target="_blank">View Code</a>
-                </li>
-                <li class="w3-padding-16"><h2>Algebraic Calculator</h2></li>
-            </ul>
+        <!-- Row 2 -->
+        <div class="w3-row-padding">
+            <div class="w3-half w3-margin-bottom project-card">
+                <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off hover-card">
+                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Moderate</li>
+                    <li class="w3-padding-16">Web Design</li>
+                    <li class="w3-padding-16">HTML, CSS</li>
+                    <li class="w3-padding-16">PHP</li>
+                    <li class="w3-padding-16">1-day</li>
+                    <li class="w3-padding-16">1 Member</li>
+                    <li class="w3-padding-16">
+                        <a href="https://github.com/Charannaidu07/Story" target="_blank">View Code</a>
+                    </li>
+                    <li class="w3-padding-16"><h2>Story</h2></li>
+                </ul>
+            </div>
+
+            <div class="w3-half w3-margin-bottom project-card">
+                <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off hover-card">
+                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
+                    <li class="w3-padding-16">Web Design</li>
+                    <li class="w3-padding-16">HTML, CSS</li>
+                    <li class="w3-padding-16">Flask</li>
+                    <li class="w3-padding-16">1-day</li>
+                    <li class="w3-padding-16">1 Member</li>
+                    <li class="w3-padding-16">
+                        <a href="https://github.com/Charannaidu07/Calculator" target="_blank">View Code</a>
+                    </li>
+                    <li class="w3-padding-16"><h2>Algebraic Calculator</h2></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="w3-row-padding">
+            <div class="w3-half w3-margin-bottom project-card">
+                <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off hover-card">
+                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
+                    <li class="w3-padding-16">Web Design</li>
+                    <li class="w3-padding-16">HTML, CSS</li>
+                    <li class="w3-padding-16">Django</li>
+                    <li class="w3-padding-16">1-day</li>
+                    <li class="w3-padding-16">1 Member</li>
+                    <li class="w3-padding-16">
+                        <a href="https://github.com/Charannaidu07/matrixoperation" target="_blank">View Code</a>
+                    </li>
+                    <li class="w3-padding-16"><h2>Matrix Calculator</h2></li>
+                </ul>
+            </div>
         </div>
     </div>
-
-    <!-- Row 3 -->
-    <div class="w3-row-padding">
-        <div class="w3-half w3-margin-bottom project-card">
-            <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off hover-card">
-                <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
-                <li class="w3-padding-16">Web Design</li>
-                <li class="w3-padding-16">HTML, CSS</li>
-                <li class="w3-padding-16">Django</li>
-                <li class="w3-padding-16">1-day</li>
-                <li class="w3-padding-16">1 Member</li>
-                <li class="w3-padding-16">
-                      <a href="https://github.com/Charannaidu07/matrixoperation" target="_blank">View Code</a>
-                </li>
-                <li class="w3-padding-16"><h2>Matrix Calculator</h2></li>
-            </ul>
-        </div>
-        <div class="w3-half w3-margin-bottom project-card empty-placeholder"></div>
-    </div>
-</div>
-
         
-<!-- Statistics Section -->
-<div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
-  <div class="w3-quarter w3-section">
-      <span class="w3-xlarge">2+</span><br>
-      Partners
-  </div>
-  <div class="w3-quarter w3-section">
-      <span class="w3-xlarge">5+</span><br>
-      Projects Done
-  </div>
-  <div class="w3-quarter w3-section">
-      <span class="w3-xlarge">2+</span><br>
-      Internships
-  </div>
-</div>
+    <!-- Statistics Section -->
+    <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
+        <div class="w3-quarter w3-section">
+            <span class="w3-xlarge">2+</span><br>
+            Partners
+        </div>
+        <div class="w3-quarter w3-section">
+            <span class="w3-xlarge">5+</span><br>
+            Projects Done
+        </div>
+        <div class="w3-quarter w3-section">
+            <span class="w3-xlarge">2+</span><br>
+            Internships
+        </div>
+    </div>
   
     <!-- Contact Section -->
     <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
