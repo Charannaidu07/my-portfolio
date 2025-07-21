@@ -50,75 +50,77 @@
             object-fit: cover;
         }
 
-        .certificate-container {
+        /* Certificate Gallery Styles */
+        .certificate-gallery {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             padding: 20px;
         }
 
-        .collapsible-card {
-            width: 250px;
-            height: 150px;
+        .certificate-item {
+            width: 280px;
+            background: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .certificate-img-container {
+            height: 180px;
             overflow: hidden;
             position: relative;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        .collapsible-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .collapsible-card.expanded {
-            width: 90vw;
-            max-width: 800px;
-            height: auto;
-            z-index: 1000;
             background: #000;
-            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .collapsible-card .certificate-description {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.75);
-            color: #fff;
-            text-align: center;
-            padding: 12px 10px;
-            font-size: 14px;
-            opacity: 1;
-            transition: all 0.3s ease;
-            z-index: 2;
+        .certificate-img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
         }
 
-        .collapsible-card.expanded .certificate-description {
-            position: relative;
-            background: #111;
-            padding: 20px;
-            font-size: 16px;
-            opacity: 1;
+        .certificate-item:hover .certificate-img {
+            transform: scale(1.05);
         }
 
-        .zoom-icon {
-            position: absolute;
-            top: 8px;
-            right: 10px;
-            font-size: 18px;
+        .certificate-info {
+            padding: 15px;
             color: white;
-            background: rgba(0,0,0,0.6);
-            padding: 5px 8px;
-            border-radius: 5px;
-            z-index: 999;
+        }
+
+        .certificate-title {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .certificate-org {
+            color: #aaa;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .certificate-points {
+            color: #ddd;
+            font-size: 0.85em;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .certificate-points li {
+            margin-bottom: 5px;
         }
 
         /* Project Card Styling */
@@ -139,20 +141,19 @@
         }
 
         .hover-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #333;
             border-radius: 10px;
-            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             min-height: 400px;
             display: flex;
             flex-direction: column;
             position: relative;
-            justify-content: space-between;
-            width: 100%;
         }
 
         .hover-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
 
         /* Internship Section Styles */
@@ -196,6 +197,72 @@
             justify-content: center;
             gap: 20px;
         }
+
+        /* Section Header */
+        .section-header {
+            position: relative;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            display: inline-block;
+            color: white;
+            background: #222;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #444;
+            z-index: 0;
+        }
+
+        .highlight-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .highlight-icon {
+            margin-right: 15px;
+            color: #4CAF50;
+            font-size: 1.2em;
+        }
+
+        .project-header {
+            background: #222;
+            padding: 15px;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .project-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            color: #aaa;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .project-details {
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            margin-top: auto;
+        }
     </style>
 </head>
 <body class="w3-black">
@@ -229,17 +296,24 @@
 <div class="w3-padding-large" id="main">
 
     <!-- Header -->
-    <header class="w3-container w3-center w3-black">
-        <h1 class="w3-jumbo">I'm Charan Edamalapati.</h1>
-        <p>Software Developer,AI and ML Enthusiast</p>
+    <header class="w3-container w3-center w3-padding-32">
+        <h1 class="w3-jumbo">I'm <span class="w3-text-light-grey">Charan Edamalapati</span></h1>
+        <p>Software Developer | AI & ML Enthusiast</p>
         <img src="myimg.png" alt="profile" class="circular-image">
     </header>
 
     <!-- About Section -->
     <div class="w3-content w3-padding-64 w3-text-grey" id="about">
-        <h2 class="w3-text-light-grey">E CHARAN</h2>
+        <div class="section-header">
+            <h2>About Me</h2>
+        </div>
+        
         <p>I am an aspiring software developer currently pursuing a Bachelor of Engineering in Computer Science and Engineering at Sathyabama Institute of Science and Technology, graduating in 2027. With a strong foundation in full-stack development, I specialize in Django and React, and I am deeply passionate about artificial intelligence, machine learning, and data science. I have hands-on experience in developing dynamic web applications, chatbots, and e-commerce platforms, focusing on delivering seamless user experiences and efficient system architectures. Constantly exploring new technologies, I aim to contribute to impactful projects that bridge the gap between technology and real-world challenges.</p>
-        <h3 class="w3-text-light-grey">My Skills</h3>
+        
+        <div class="section-header" style="margin-top: 50px;">
+            <h2>My Skills</h2>
+        </div>
+        
         <p class="w3-wide">Python</p>
         <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:70%"></div></div>
         <p class="w3-wide">Back End</p>
@@ -248,35 +322,61 @@
         <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:60%"></div></div>
         <p class="w3-wide">DBMS</p>
         <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:60%"></div></div>
-        <a href="Charan_Resume.pdf" class="w3-button w3-light-grey w3-margin-top" download>
-            <i class="fa fa-download"></i> Download Resume
-        </a>
+        
+        <div class="section-header" style="margin-top: 50px;">
+            <h2>My Certificates</h2>
+        </div>
 
-        <h3 class="w3-text-light-grey">My Certificates</h3>
-        <div class="certificate-container">
-            <div class="collapsible-card" onclick="toggleExpand(this)">
-                <img src="Python for Data Science.jpg" alt="Python for Data Science">
-                <div class="zoom-icon">🔍</div>
-                <div class="certificate-description">Python for Data Science - NPTEL</div>
+        <div class="certificate-gallery">
+            <div class="certificate-item">
+                <div class="certificate-img-container">
+                    <img src="Python for Data Science.jpg" alt="Python for Data Science" class="certificate-img">
+                </div>
+                <div class="certificate-info">
+                    <h3 class="certificate-title">Python for Data Science</h3>
+                    <p class="certificate-org">NPTEL • 2024</p>
+                    <ul class="certificate-points">
+                        <li>Completed 12-week intensive course</li>
+                        <li>Graded among top 10% of participants</li>
+                        <li>Covered NumPy, Pandas, Matplotlib</li>
+                    </ul>
+                    <a href="YOUR_DRIVE_LINK_HERE" class="w3-button w3-light-grey" target="_blank">View All Certificates</a>
+                </div>
             </div>
 
-            <div class="collapsible-card" onclick="toggleExpand(this)">
-                <img src="Programming in Java_page-0001.jpg" alt="Java Certificate">
-                <div class="zoom-icon">🔍</div>
-                <div class="certificate-description">Programming in Java - NPTEL</div>
+            <div class="certificate-item">
+                <div class="certificate-img-container">
+                    <img src="Programming in Java_page-0001.jpg" alt="Java Certificate" class="certificate-img">
+                </div>
+                <div class="certificate-info">
+                    <h3 class="certificate-title">Programming in Java</h3>
+                    <p class="certificate-org">NPTEL • 2024</p>
+                    <ul class="certificate-points">
+                        <li>Completed with elite certification</li>
+                        <li>Mastered OOP concepts in Java</li>
+                        <li>Built multiple GUI applications</li>
+                    </ul>
+                    <a href="YOUR_DRIVE_LINK_HERE" class="w3-button w3-light-grey" target="_blank">View All Certificates</a>
+                </div>
             </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="Charan_Resume.pdf" class="w3-button w3-light-grey" download>
+                <i class="fa fa-download"></i> Download Resume
+            </a>
         </div>
     </div>
 
     <!-- Internship Section -->
     <div class="w3-padding-64 w3-content" id="internships">
-        <h2 class="w3-text-light-grey">My Internships</h2>
-        <hr style="width:200px" class="w3-opacity">
+        <div class="section-header">
+            <h2>My Internships</h2>
+        </div>
 
         <div class="internship-card">
             <h3 class="internship-company">IBM SkillsBuild AI & Cloud Internship</h3>
-            <p class="internship-duration">Edunet Foundation(AICTE)</p>
-            <p class="internship-duration">July 2025 - August 2024</p>
+            <p class="internship-duration">Edunet Foundation(AICTE) • July 2025 - August 2024</p>
             <div class="internship-description">
                 <p>Completed AI and Cloud Computing internship through IBM SkillsBuild program, gaining hands-on experience with IBM Watson AI services and cloud technologies.</p>
                 <ul>
@@ -297,90 +397,111 @@
 
     <!-- Portfolio Section -->
     <div class="w3-padding-64 w3-content" id="photos">
-        <h2 class="w3-text-light-grey">My Projects</h2>
-        <hr style="width:200px" class="w3-opacity">
+        <div class="section-header">
+            <h2>My Projects</h2>
+        </div>
 
         <!-- Row 1 -->
         <div class="w3-row-padding">
             <div class="w3-half w3-margin-bottom project-card">
-                <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off hover-card">
-                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Moderate</li>
-                    <li class="w3-padding-16">Web Design</li>
-                    <li class="w3-padding-16">HTML, CSS</li>
-                    <li class="w3-padding-16">Django</li>
-                    <li class="w3-padding-16">15-days</li>
-                    <li class="w3-padding-16">1 Member</li>
-                    <li class="w3-padding-16">
-                        <a href="https://github.com/Charannaidu07/Restaurently" target="_blank">View Code</a>
-                    </li>
-                    <li class="w3-padding-16"><h2>Restaurant Management System</h2></li>
-                </ul>
+                <div class="hover-card">
+                    <div class="project-header">
+                        Restaurant Management System
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tech">Web Design • HTML, CSS • Django</div>
+                        <div class="project-details">
+                            <p>A comprehensive system for managing restaurant operations including menu, orders, and staff.</p>
+                            <p><strong>Duration:</strong> 15 days</p>
+                            <p><strong>Team:</strong> Solo project</p>
+                        </div>
+                        <div class="project-link">
+                            <a href="https://github.com/Charannaidu07/Restaurently" class="w3-button w3-light-grey" target="_blank">View Code</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="w3-half w3-margin-bottom project-card">
-                <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off hover-card">
-                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Moderate</li>
-                    <li class="w3-padding-16">Full Stack</li>
-                    <li class="w3-padding-16">HTML, CSS, Bootstrap</li>
-                    <li class="w3-padding-16">Django, Mysql</li>
-                    <li class="w3-padding-16">3-days</li>
-                    <li class="w3-padding-16">1 Member</li>
-                    <li class="w3-padding-16">
-                        <a href="https://github.com/Charannaidu07/hostelmanagement" target="_blank">View Code</a>
-                    </li>
-                    <li class="w3-padding-16"><h2>Hostel Management</h2></li>
-                </ul>
+                <div class="hover-card">
+                    <div class="project-header">
+                        Hostel Management
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tech">Full Stack • HTML, CSS, Bootstrap • Django, MySQL</div>
+                        <div class="project-details">
+                            <p>A system for managing hostel accommodations, student records, and fee payments.</p>
+                            <p><strong>Duration:</strong> 3 days</p>
+                            <p><strong>Team:</strong> Solo project</p>
+                        </div>
+                        <div class="project-link">
+                            <a href="https://github.com/Charannaidu07/hostelmanagement" class="w3-button w3-light-grey" target="_blank">View Code</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Row 2 -->
         <div class="w3-row-padding">
             <div class="w3-half w3-margin-bottom project-card">
-                <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off hover-card">
-                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Moderate</li>
-                    <li class="w3-padding-16">Web Design</li>
-                    <li class="w3-padding-16">HTML, CSS</li>
-                    <li class="w3-padding-16">PHP</li>
-                    <li class="w3-padding-16">1-day</li>
-                    <li class="w3-padding-16">1 Member</li>
-                    <li class="w3-padding-16">
-                        <a href="https://github.com/Charannaidu07/Story" target="_blank">View Code</a>
-                    </li>
-                    <li class="w3-padding-16"><h2>Story</h2></li>
-                </ul>
+                <div class="hover-card">
+                    <div class="project-header">
+                        Story
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tech">Web Design • HTML, CSS • PHP</div>
+                        <div class="project-details">
+                            <p>A web application for creating and sharing interactive stories.</p>
+                            <p><strong>Duration:</strong> 1 day</p>
+                            <p><strong>Team:</strong> Solo project</p>
+                        </div>
+                        <div class="project-link">
+                            <a href="https://github.com/Charannaidu07/Story" class="w3-button w3-light-grey" target="_blank">View Code</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="w3-half w3-margin-bottom project-card">
-                <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off hover-card">
-                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
-                    <li class="w3-padding-16">Web Design</li>
-                    <li class="w3-padding-16">HTML, CSS</li>
-                    <li class="w3-padding-16">Flask</li>
-                    <li class="w3-padding-16">1-day</li>
-                    <li class="w3-padding-16">1 Member</li>
-                    <li class="w3-padding-16">
-                        <a href="https://github.com/Charannaidu07/Calculator" target="_blank">View Code</a>
-                    </li>
-                    <li class="w3-padding-16"><h2>Algebraic Calculator</h2></li>
-                </ul>
+                <div class="hover-card">
+                    <div class="project-header">
+                        Algebraic Calculator
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tech">Web Design • HTML, CSS • Flask</div>
+                        <div class="project-details">
+                            <p>A calculator application for solving algebraic equations with step-by-step solutions.</p>
+                            <p><strong>Duration:</strong> 1 day</p>
+                            <p><strong>Team:</strong> Solo project</p>
+                        </div>
+                        <div class="project-link">
+                            <a href="https://github.com/Charannaidu07/Calculator" class="w3-button w3-light-grey" target="_blank">View Code</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Row 3 -->
         <div class="w3-row-padding">
             <div class="w3-half w3-margin-bottom project-card">
-                <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off hover-card">
-                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
-                    <li class="w3-padding-16">Web Design</li>
-                    <li class="w3-padding-16">HTML, CSS</li>
-                    <li class="w3-padding-16">Django</li>
-                    <li class="w3-padding-16">1-day</li>
-                    <li class="w3-padding-16">1 Member</li>
-                    <li class="w3-padding-16">
-                        <a href="https://github.com/Charannaidu07/matrixoperation" target="_blank">View Code</a>
-                    </li>
-                    <li class="w3-padding-16"><h2>Matrix Calculator</h2></li>
-                </ul>
+                <div class="hover-card">
+                    <div class="project-header">
+                        Matrix Calculator
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tech">Web Design • HTML, CSS • Django</div>
+                        <div class="project-details">
+                            <p>A tool for performing matrix operations including addition, multiplication, and determinant calculation.</p>
+                            <p><strong>Duration:</strong> 1 day</p>
+                            <p><strong>Team:</strong> Solo project</p>
+                        </div>
+                        <div class="project-link">
+                            <a href="https://github.com/Charannaidu07/matrixoperation" class="w3-button w3-light-grey" target="_blank">View Code</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -403,7 +524,9 @@
   
     <!-- Contact Section -->
     <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-        <h2>Contact Me</h2>
+        <div class="section-header">
+            <h2>Contact Me</h2>
+        </div>
         <p><i class="fa fa-map-marker"></i> Chennai, India</p>
         <p><i class="fa fa-phone"></i> +91 9182075580</p>
         <p><i class="fa fa-envelope"></i> charanedamalapati2005@gmail.com</p>
@@ -419,6 +542,7 @@
         </a>
     </footer>
 </div>
+
 <script>
     function toggleExpand(card) {
         card.classList.toggle("expanded");
